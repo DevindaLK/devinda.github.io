@@ -1,752 +1,913 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tharaka Devinda - Software Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Home Section */
-.home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full screen height */
-    background-color: #111; /* Dark background for contrast */
-    color: #fff;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.home-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.home-text {
-    max-width: 50%;
-}
-
-.home-text h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.home-text p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-}
-
-.home-text .btn {
-    padding: 10px 20px;
-    background-color: #00BFFF; /* Accent color */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.home-text .btn:hover {
-    background-color: #0099CC; /* Darker shade on hover */
-}
-
-.home-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .home-content {
-        flex-direction: column;
-        text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tharaka Devinda — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  corePlugins: { preflight: false },
+  theme: {
+    extend: {
+      colors: {
+        red: { 500: '#e63030', 600: '#c41f1f', 700: '#9c1515' },
+        dark: { 900: '#0a0a0a', 800: '#111111', 700: '#1a1a1a', 600: '#222222' }
+      },
+      fontFamily: {
+        display: ['Space Grotesk', 'sans-serif'],
+        body: ['Inter', 'sans-serif']
+      }
     }
-
-    .home-text {
-        max-width: 100%;
-    }
-
-    .home-image img {
-        margin-top: 20px;
-        width: 80%;
-    }
+  }
 }
-
-        /* General Styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #0e0e0e;
-    color: #fff;
-}
-
-a {
-    color: #00BFFF;
-    text-decoration: none;
-}
-
-h1, h2, h3, h4, p {
-    margin: 0;
-    padding: 0;
-}
-
-/* Navbar */
-.navbar {
-    position: fixed;
-    width: 100%;
-    background-color: #111;
-    padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.navbar .logo a {
-    font-size: 24px;
-    color: #00BFFF;
-    font-weight: bold;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-}
-
-.navbar ul li {
-    margin-left: 20px;
-}
-
-.navbar ul li a {
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.navbar ul li a:hover, .navbar ul li a.current {
-    background-color: #00BFFF;
-    color: #fff;
-}
-
-/* Home Section */
-.home {
-    height: 100vh;
-    background: url('background.jpg') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.home h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.home p {
-    font-size: 24px;
-    margin-bottom: 30px;
-}
-
-.home .btn {
-    padding: 10px 20px;
-    background-color: #00BFFF;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s;
-}
-
-.home .btn:hover {
-    background-color: #0088cc;
-}
-
-/* About Section */
-.about {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-}
-
-.about .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.about-content {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.about-image {
-    flex: 0 0 auto;
-    width: 90px; /* Adjust size as needed */
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%; /* Makes the image round */
-    object-fit: cover; /* Ensures the image fits well within the circle */
-}
-
-.about .about-content {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.about h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.about .about-image {
-    flex: 1;
-}
-
-.about img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-/* Skills Section */
-.skills {
-    padding: 80px 20px;
-    background-color: #111;
-    text-align: center;
-}
-
-.skills h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.skill-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.skill-card {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-    flex: 1 1 200px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-}
-
-.skill-card i {
-    font-size: 40px;
-    color: #00BFFF;
-    margin-bottom: 10px;
-}
-
-.skill-card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-/* Experience & Education Section */
-.experience, .education {
-    padding: 80px 20px;
-    background-color: #1a1a1a;
-    text-align: center;
-}
-
-.experience h2, .education h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.experience-timeline, .education-timeline {
-    margin-top: 40px;
-    position: relative;
-}
-
-.timeline-item {
-    margin-bottom: 20px;
-}
-
-.timeline-item h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.timeline-item h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #00BFFF;
-}
-
-.timeline-item ul {
-    list-style: none;
-    padding: 0;
-}
-
-.timeline-item ul li {
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #ccc;
-}
-
-/* Contact Section */
-.contact {
-    padding: 80px 20px;
-    background-color: #111;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.contact-info {
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.social-icons a {
-    font-size: 24px;
-    color: #00BFFF;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #0088cc;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-        display: none;
-        background-color: #111;
-        position: absolute;
-        top: 50px;
-        right: 0;
-        width: 200px;
-    }
-
-    .navbar ul li {
-        margin: 0;
-    }
-
-    .navbar ul li a {
-        display: block;
-        padding: 10px;
-    }
-
-    .navbar ul.active {
-        display: block;
-    }
-
-    .about {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about .about-content, .about .about-image {
-        padding: 0;
-    }
-}
-/* General Styles */
+</script>
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #e8e8e8;
+  overflow-x: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
+/* ── 3D Grid Background ── */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  perspective: 600px;
+  overflow: hidden;
+}
+.grid-plane {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -10%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: rotateX(60deg);
+  transform-origin: top center;
+  animation: gridScroll 12s linear infinite;
+}
+.grid-plane::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.95) 90%);
+}
+@keyframes gridScroll {
+  from { background-position: 0 0; }
+  to   { background-position: 0 120px; }
 }
 
-/* Gallery Section */
-.gallery {
-    padding: 50px 0;
-    background-color: #0a0000;
+/* Red accent glow orbs */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 { width: 500px; height: 500px; background: #e63030; top: -100px; right: -100px; animation: orbFloat 8s ease-in-out infinite; }
+.orb-2 { width: 400px; height: 400px; background: #c41f1f; bottom: 10%; left: -120px; animation: orbFloat 10s ease-in-out infinite reverse; }
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
 }
 
-.gallery h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    color: #333;
+/* ── Noise texture overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.3;
 }
 
-/* Gallery Grid */
-.gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+/* ── Navbar ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.3s ease;
+}
+nav.scrolled {
+  border-bottom-color: rgba(230,48,48,0.3);
+  background: rgba(10,10,10,0.9);
+}
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: #e63030; }
+.nav-links { display: flex; gap: 2px; list-style: none; }
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: #888;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.nav-links a.active { color: #e63030; }
+
+/* ── Sections layout ── */
+section {
+  position: relative;
+  z-index: 10;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+section#hero { max-width: 100%; padding: 0; }
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left  { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+.reveal-right { opacity: 0; transform: translateX(40px);  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+.reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── Hero ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 7rem 2rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e63030;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #e63030;
+}
+.hero-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.hero-name .accent { color: #e63030; }
+.hero-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #777;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+}
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e63030;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-red:hover { background: #c41f1f; transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.3); color: #fff; transform: translateY(-2px); }
+
+/* Hero photo */
+.hero-photo-wrap {
+  position: relative;
+  width: 300px;
+  height: 360px;
+}
+.hero-photo-frame {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(230,48,48,0.4);
+  background: rgba(230,48,48,0.03);
+  overflow: hidden;
+}
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.hero-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #444;
+}
+.hero-photo-placeholder i { font-size: 56px; color: #333; }
+.hero-photo-placeholder p { font-size: 13px; color: #555; }
+/* Decorative corner lines */
+.hero-photo-wrap::before, .hero-photo-wrap::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: #e63030;
+  border-style: solid;
+  opacity: 0.7;
+}
+.hero-photo-wrap::before { top: -8px; left: -8px; border-width: 2px 0 0 2px; border-radius: 4px 0 0 0; }
+.hero-photo-wrap::after  { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; border-radius: 0 0 4px 0; }
+/* Floating stat badge */
+.hero-badge {
+  position: absolute;
+  bottom: -16px;
+  left: -24px;
+  background: #111;
+  border: 1px solid rgba(230,48,48,0.3);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.hero-badge .num { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #e63030; }
+.hero-badge .lbl { font-size: 11px; color: #666; line-height: 1.3; }
+
+/* ── Section header ── */
+.sec-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e63030;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.sec-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: #e63030;
+}
+.sec-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
 }
 
-.gallery-item {
-    flex: 1 1 calc(33.333% - 30px);
-    max-width: calc(33.333% - 30px);
-    overflow: hidden;
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* White line divider */
+.white-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent);
+  margin: 0;
+  position: relative;
+  z-index: 10;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+/* ── About ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 3rem;
+  align-items: start;
+}
+.about-text p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #888;
+  margin-bottom: 1rem;
+}
+.about-text p strong { color: #ddd; font-weight: 500; }
+.stat-grid { display: grid; gap: 12px; }
+.stat-box {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.stat-box:hover { border-color: rgba(230,48,48,0.4); transform: translateY(-3px); }
+.stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #e63030; }
+.stat-lbl { font-size: 11px; color: #555; margin-top: 3px; }
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+.skill-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+  cursor: default;
+}
+.skill-card:hover {
+  border-color: #e63030;
+  background: rgba(230,48,48,0.06);
+  transform: translateY(-4px);
+}
+.skill-card i { font-size: 28px; color: #e63030; margin-bottom: 10px; display: block; }
+.skill-card p { font-size: 13px; color: #aaa; font-weight: 500; }
+
+/* ── Experience ── */
+.exp-list { display: flex; flex-direction: column; gap: 16px; }
+.exp-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.exp-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: #e63030;
+  border-radius: 3px 0 0 3px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+}
+.exp-card:hover { border-color: rgba(230,48,48,0.3); transform: translateX(4px); }
+.exp-card:hover::before { transform: scaleY(1); }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.exp-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #e8e8e8; }
+.exp-badge {
+  font-size: 11px;
+  background: rgba(230,48,48,0.12);
+  color: #e63030;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(230,48,48,0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.exp-org { font-size: 13px; color: #e63030; margin-bottom: 10px; }
+.exp-desc { font-size: 13px; color: #666; line-height: 1.75; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #777;
 }
 
-/* Hover Effects */
-.gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+/* ── Education ── */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.edu-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.edu-card:hover { border-color: rgba(230,48,48,0.3); transform: translateY(-4px); }
+.edu-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; color: #e8e8e8; margin-bottom: 6px; }
+.edu-card p { font-size: 13px; color: #666; line-height: 1.6; }
+.edu-year { font-size: 12px; color: #e63030; margin-top: 8px; }
+.nvq-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.nvq-pill {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(230,48,48,0.1);
+  border: 1px solid rgba(230,48,48,0.25);
+  color: #e63030;
 }
 
-.gallery-item:hover img {
-    transform: scale(2);
+/* ── Contact ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.contact-card:hover { border-color: rgba(230,48,48,0.3); transform: translateY(-3px); }
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(230,48,48,0.1);
+  border: 1px solid rgba(230,48,48,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-icon i { font-size: 16px; color: #e63030; }
+.contact-label { font-size: 11px; color: #555; margin-bottom: 2px; }
+.contact-val { font-size: 13px; color: #ccc; font-weight: 500; }
+.social-row { display: flex; gap: 10px; }
+.soc-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #888;
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+.soc-btn:hover { border-color: #e63030; color: #e63030; transform: translateY(-2px); }
+
+/* ── Footer ── */
+footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  font-size: 12px;
+  color: #333;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer span { color: #e63030; }
+
+/* ── Scroll progress bar ── */
+#progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: #e63030;
+  z-index: 2000;
+  transition: width 0.1s linear;
+  width: 0%;
 }
 
-article {
-  padding:4em;
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+  .hero-photo-wrap { width: 200px; height: 240px; margin: 0 auto; }
+  .hero-badge { left: -8px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
+  .edu-grid, .contact-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  section { padding: 3.5rem 1.5rem; }
 }
-img {
-  width:500px;
-}
-
-
-    </style>
-    <script>
-        // Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Mobile Navigation Toggle
-const navbar = document.querySelector('#navbar ul');
-document.querySelector('.navbar .logo').addEventListener('click', () => {
-    navbar.classList.toggle('active');
-});
-
-
-    </script>
+</style>
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo"><a href="#home">Tharaka Devinda</a></h1>
-            <ul class="nav-links">
-                <li><a href="#home" class="current">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Home Section -->
-    <section id="bg">
-    <section id="home" class="home">
-        <div class="container">
-            <div class="home-content">
-                <div class="home-text">
-                    
-                      
-                   
-                    <h2>I'm Tharaka Devinda</h2>
-                    <p>Full-stack Software Developer</p>
-                    <a href="#contact" class="btn">Contact Me</a>
-                </div>
-                
-                <div class="home-image">
-                    
-                    <!-- <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJosTY4r5DeCBUCjcMVj8_xZwAE92t6gMOEYRR_kU2ohElzyWM4c8Z4Zu6JAMENSHDT9t3ESob-oHu4dcLaX4813ihyslaT1jOQgGqzBO_b6mM8MJZE1u1N2MNkHm2fPUedmvyHN0IKyylbfRZTIPwbD9bwdpyY9R7S1KfWQiRAA-lyUttwDH3aIbpVv0/s16000/31123123123.JPG" alt="Tharaka Devinda"> -->
-                </div>
-            </div>
-        </div>
-    </section>
-   
-    <script>
-        var blendAmount = 70;
-var delay = -10;
-var windowWidth = window.innerWidth;
-var bg = document.getElementById("bg");
 
-document.onmousemove = function(e){
-	mouseX = Math.round(e.pageX / windowWidth * 100 - delay);
-	
-	col1 = mouseX - blendAmount;
-	col2 = mouseX + blendAmount;
-	
-	bg.style.background = "linear-gradient(to right, #156785 "+ col1 +"%, #fad0c4 "+ col2 +"%)";
-}
-    </script>
+<!-- Scroll progress -->
+<div id="progress"></div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <h2>About Me</h2>
-                <p>I'm an experienced Software Developer with a passion for building innovative solutions. Skilled in full-stack development, database management, and UI/UX design.</p>
-            </div>
-            <div class="about-image">
-                <img style="width: 200px; height: 200px; border-radius: 100px;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjtMcN375DagtznuzRuwFHrOjJtmfpoJ3WMp9sjnWUoOOFE5JitxQ2Otx-zXvEhdaMvzTSntZO2vHgwuJIPdZkdTq4-paamVoV-8A-tKllDCumDm5q5Mm2mcvJyr-mv_bVN5A9uEsYzxTfs-OtoOWDn_8IU229sZm8FTHMHvxPrIIh3bUXnv_daAQXw7k/s16000/tt.jpg" alt="Tharaka Devinda">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skill-cards">
-                <div class="skill-card">
-                    <i class="fab fa-java"></i>
-                    <h3>Java</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-php"></i>
-                    <h3>PHP</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-laravel"></i>
-                    <h3>Laravel</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-Boostrap"></i>
-                    <h3>Boostrap</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>MySQL</h3>
-                </div>
-                <!-- Add more skill cards as needed -->
-            </div>
-        </div>
-    </section>
+<!-- 3D Grid Background -->
+<div class="grid-bg" aria-hidden="true">
+  <div class="grid-plane"></div>
+</div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <h3>Software Programmer</h3>
-                    <h4>Data Management Systems (Pvt) Ltd - Software Division (Full-time)</h4>
-                    <ul>
-                        <li><strong>Modules:</strong></li>
-                        <li>Handled database operations for the <strong>Singer Sri Lanka</strong> web-based system.</li>
-                        <li>Developed an Early childhood web-based system using Angular.</li>
-                        <li>Contributed to the development of the Singer Sri Lanka ERP system using Angular.</li>
-                        <li>Involved in the development of the Army Payroll Management System (Java application).</li>
-                        <li>Involved in UI/UX design for a tax system.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Full-Stack Developer</h3>
-                    <h4>Developed BAM ERP 2.0 as a full-stack developer</h4>
-                    <p><strong>Customized ERP system for garment factory environment</strong></p>
-                    <ul>
-                        <li><strong>Modules:</strong>
-                            <ul>
-                                <li>Product data management</li>
-                                <li>Order book organization</li>
-                                <li>Stores management</li>
-                                <li>Inventory management</li>
-                                <li>Invoicing</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p><strong>Technical details</strong></p>
-                    <ul>
-                        <li><strong>Framework:</strong> Laravel</li>
-                        <li><strong>Database server:</strong> MySQL</li>
-                        <li><strong>Frontend Development:</strong> HTML, CSS, JavaScript</li>
-                        <li><strong>API Methods:</strong> RESTful API, JSON</li>
-                        <li><strong>Backend Development:</strong> Laravel MVC, Eloquent ORM</li>
-                        <li><strong>HTTP Methods:</strong> GET, POST, PUT, DELETE (via HTTPS)</li>
-                        <li><strong>Reporting Tools:</strong> Eclipse for report development</li>
-                        <li><strong>Report Server:</strong> JBoss server for report hosting and configuration</li>
-                        <li><strong>Server Configuration:</strong> JBoss server setup and management</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Software Developer</h3>
-                    <h4>Developed Yala Leopard Hotel Management System as a Full-Stack Developer</h4>
-                    <h4>BAM (Pvt) Ltd - Full-time Software Developer</h4>
-                    <ul>
-                        <li>Room Reservation Management</li>
-                        <li>Food & Beverage Management</li>
-                        <li>Currency Management</li>
-                        <li>Invoice Conversion to Any Currency</li>
-                        <li>Invoicing and Report Generation</li>
-                        <li>Implemented advanced booking features and user-friendly interfaces</li>
-                        <li>Integrated with payment gateways for seamless transactions</li>
-                        <li>Developed a robust system for managing customer preferences and special requests</li>
-                    </ul>
-                    <p><strong>Technical details</strong></p>
-                    <ul>
-                        <li><strong>Framework:</strong> Laravel</li>
-                        <li><strong>Database server:</strong> MySQL</li>
-                        <li><strong>Frontend Development:</strong> HTML, CSS, JavaScript</li>
-                        <li><strong>API Methods:</strong> RESTful API, JSON</li>
-                        <li><strong>Backend Development:</strong> Laravel MVC, Eloquent ORM</li>
-                        <li><strong>HTTP Methods:</strong> GET, POST, PUT, DELETE (via HTTPS)</li>
-                        <li><strong>Hosting:</strong> System hosted on cloud, accessible via IP address</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Experience In Computer Hardware & Networking</h3>
-                    <ul>
-                        <li><strong>National Diploma:</strong> NVQ Level 4 in Computer Hardware and Networking</li>
-                        <li><strong>Skills:</strong>
-                            <ul>
-                                <li>Computer Network Configurations</li>
-                                <li>Windows Server and Firewall Configurations</li>
-                                <li>Printer Installations</li>
-                                <li>Windows Software Troubleshooting</li>
-                            </ul>
-                        </li>
-                        <li><strong>Relevance to Software Development:</strong> These skills provide a strong foundation for understanding system infrastructure, network security, and troubleshooting, which are valuable for a software developer.</li>
-                        <li><strong>Experience:</strong> 3 years of hands-on experience in the above areas.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-                
-               
+<!-- Red orb glows -->
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-timeline">
-                <div class="timeline-item">
-                    <h3>University of Vocational Technology</h3>
-                    <h2>Bachelor of Technology in Software Technology (01/2021 – present)</h2>
-                    <p>Rathmalana, Sri Lanka</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Vocational Training Authority</h3>
-                    <h2>Qualified in ICT</h2>
-                    <ul>
-                      <h3><i class="fas fa-check-circle" style="color: green;"></i> NVQ Level 05</h3>
-                      <h3> <i class="fas fa-check-circle" style="color: green;"></i> NVQ Level 04</h3>
-                        <h3>  <i class="fas fa-check-circle" style="color: green;"></i> NVQ Level 03</h3>
-                    </ul>
-                    
-                    <p>Sri Lanka</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2 style="color: #ffffff;">Project Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-RwuDGwus_PqhdM9o8ZqMjjNm5kZtHGMAw9hOgp0SRlsBkwf58qcHUEk648Ji2Io6qhNwMeM8KIiYZxKAZT5rckMdxDZ6YdWdg0xlbPV7-Ty467V2byr21Z4oZvePPOTc5NYFE-occ6H_xtFVm6HvGVbeHZVahxzc72WZCqpcPZPCkqOt-Vilg3pkKDA/s16000/ylp.JPG" alt="Project 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyO2-D1znhWWSYOMvOE6XTfmKcoVmvHz44DZpeHJUG1rm8soNwAByPuiUyUH8e-QteCYbHRf9BNSfXceC9D_I4c2qO7QQim2MU7CgKwAPxo2UHv4FmJ4Oz7SHwGl7SiEZEdOVBaP8phvs3xZZI9ZABgltkYPz6FvEeLNd3HGIqx7b1-qMv6bXEcM_RdOg/s16000/3.png" alt="Project 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQtGfg8-0LlBk0LLZQDSWhNuWRbp0WSm1WncgZokmWibhGI65PGItipc300rc-NuCWH26o01LnByuDQ_BVVGv4Aj07ZF6CnBPvDWiGtvyHmNFLYgeOLHMSuuT2T0eaW7rpzHGAx_GZqyn4kXrxFI_BkpUf70vzInP3oWtUg9z3PBcLPGRiu61gKtm-sNY/s16000/2.png" alt="Project 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdp46OnZekVnUQCowg8T0RLh-NrYVpqVRyrd0HeJfG94O9mH-a3vo9xodomOu2tqxJ1BgvdgIJIUpZ2hGnWa2pew456Mm-8gXoh9_N6ZahJ5D3u59OSRI8ugFsJyUd-w1o5duPgjqosf2d96phF3CftUM7T3vPhIeJ6cFbnfXuIJ1UiTHDqPpzM22Paf4/s16000/6.JPG" alt="Project 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ_KNrBGrGkjADvMsp7Sbu_a0VjOAu1a87MOIAll8rw8FIwBYXimA54PwzKId83HlixrDWL5VJ0b5k_bLnGoAQC01lt4ePCJx1XyScEYKYzll3O-5Z5tvnU3KHd2WJthzY9ClCfptbLTYra_UGY0O6VK-PwD-JlG37B8Xei1DwsP7E49lDZ-VxLr3peOI/s16000/3.JPG" alt="Project 3">
-                </div>
-                <!-- Add more gallery items as needed -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i>  Colombo,Sri Lanka</p>
-                <p><i class="fas fa-envelope"></i> devinda.tharaka@gmail.com</p>
-                <p><i class="fas fa-phone-alt"></i> +94 71 017 49 49</p>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </section>
+<!-- ── Navbar ── -->
+<nav id="navbar" role="navigation">
+  <a href="#hero" class="nav-logo">Tharaka<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about"   class="nav-link">About</a></li>
+    <li><a href="#skills"  class="nav-link">Skills</a></li>
+    <li><a href="#exp"     class="nav-link">Experience</a></li>
+    <li><a href="#edu"     class="nav-link">Education</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
 
-    <script src="scripts.js"></script>
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <!-- Left: text -->
+    <div>
+      <div class="hero-eyebrow reveal">Full-stack developer</div>
+      <h1 class="hero-name reveal reveal-delay-1">
+        Tharaka<br><span class="accent">Devinda</span>
+      </h1>
+      <p class="hero-role reveal reveal-delay-2">Building enterprise systems with Laravel & MySQL</p>
+      <p class="hero-desc reveal reveal-delay-3">
+        Experienced software developer with a passion for crafting innovative, practical solutions. Specializing in full-stack web development, ERP systems, and database architecture.
+      </p>
+      <div class="hero-cta reveal reveal-delay-4">
+        <a href="#contact" class="btn-red">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i> Get in touch
+        </a>
+        <a href="#exp" class="btn-ghost">
+          <i class="fas fa-briefcase" aria-hidden="true"></i> View my work
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: photo -->
+    <div class="reveal-right reveal-delay-2">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <!--
+            REPLACE the block below with your actual photo:
+            <img src="your-photo.jpg" alt="Tharaka Devinda">
+          -->
+          <div class="hero-photo-placeholder">
+            <i class="fas fa-user-circle" aria-hidden="true"></i>
+            <p>Add your photo here</p>
+          </div>
+          <!-- Uncomment and replace src to use your photo:
+          <img src="https://your-photo-url-here.jpg" alt="Tharaka Devinda">
+          -->
+        </div>
+        <div class="hero-badge" aria-label="3 plus years experience">
+          <div>
+            <div class="num">3+</div>
+            <div class="lbl">Years<br>experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="white-line"></div>
+
+<!-- ── About ── -->
+<section id="about">
+  <div class="sec-eyebrow reveal">About me</div>
+  <h2 class="sec-title reveal">Who I am</h2>
+  <div class="about-grid">
+    <div class="about-text reveal-left">
+      <p>I'm an experienced software developer with a passion for building <strong>innovative, practical solutions</strong>. Skilled in full-stack development, database management, and UI/UX design.</p>
+      <p>Currently developing <strong>BAM ERP 2.0</strong> — a customized internal ERP system for a garment manufacturing environment — covering product data management, order management, stores, inventory, and invoicing.</p>
+      <p>Based in <strong>Colombo, Sri Lanka</strong>, with a strong foundation in both software development and computer hardware & networking, giving me a unique perspective on full-stack systems.</p>
+    </div>
+    <div class="stat-grid reveal-right">
+      <div class="stat-box">
+        <div class="stat-num">3+</div>
+        <div class="stat-lbl">Years experience</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5+</div>
+        <div class="stat-lbl">Projects built</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">NVQ5</div>
+        <div class="stat-lbl">ICT qualified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="white-line"></div>
+
+<!-- ── Skills ── -->
+<section id="skills">
+  <div class="sec-eyebrow reveal">Technical skills</div>
+  <h2 class="sec-title reveal">What I work with</h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal reveal-delay-1">
+      <i class="fab fa-java" aria-hidden="true"></i><p>Java</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-2">
+      <i class="fab fa-js" aria-hidden="true"></i><p>JavaScript</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-3">
+      <i class="fab fa-php" aria-hidden="true"></i><p>PHP</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-4">
+      <i class="fab fa-react" aria-hidden="true"></i><p>React</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-1">
+      <i class="fab fa-laravel" aria-hidden="true"></i><p>Laravel</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-2">
+      <i class="fab fa-bootstrap" aria-hidden="true"></i><p>Bootstrap</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-3">
+      <i class="fas fa-database" aria-hidden="true"></i><p>MySQL</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-4">
+      <i class="fas fa-network-wired" aria-hidden="true"></i><p>Networking</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-1">
+      <i class="fab fa-angular" aria-hidden="true"></i><p>Angular</p>
+    </div>
+    <div class="skill-card reveal reveal-delay-2">
+      <i class="fas fa-server" aria-hidden="true"></i><p>JBoss</p>
+    </div>
+  </div>
+</section>
+
+<div class="white-line"></div>
+
+<!-- ── Experience ── -->
+<section id="exp">
+  <div class="sec-eyebrow reveal">Work history</div>
+  <h2 class="sec-title reveal">Where I've worked</h2>
+  <div class="exp-list">
+
+    <div class="exp-card reveal reveal-delay-1">
+      <div class="exp-header">
+        <div class="exp-title">Software Programmer</div>
+        <span class="exp-badge">Full-time</span>
+      </div>
+      <div class="exp-org">Data Management Systems (Pvt) Ltd</div>
+      <p class="exp-desc">Database operations for the Singer Sri Lanka web-based system. Developed an early childhood web system using Angular. Contributed to the Singer Sri Lanka ERP system. Involved in the Army Payroll Management System (Java application) and UI/UX design for a tax system.</p>
+      <div class="exp-tags">
+        <span class="tag">Angular</span>
+        <span class="tag">Java</span>
+        <span class="tag">ERP</span>
+        <span class="tag">UI/UX</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-2">
+      <div class="exp-header">
+        <div class="exp-title">Full-Stack Developer — BAM ERP 2.0</div>
+        <span class="exp-badge">Laravel</span>
+      </div>
+      <div class="exp-org">BAM (Pvt) Ltd</div>
+      <p class="exp-desc">Customized ERP system built for a garment factory environment. Modules include product data management, order book organization, stores and inventory management, and invoicing. RESTful API architecture with Laravel MVC. Reports developed in Eclipse and hosted on JBoss server.</p>
+      <div class="exp-tags">
+        <span class="tag">Laravel</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">RESTful API</span>
+        <span class="tag">JBoss</span>
+        <span class="tag">Eclipse</span>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-3">
+      <div class="exp-header">
+        <div class="exp-title">Software Developer — Hotel Management System</div>
+        <span class="exp-badge">Full-stack</span>
+      </div>
+      <div class="exp-org">Yala Leopard — BAM (Pvt) Ltd</div>
+      <p class="exp-desc">Full-stack development of a hotel management system. Covered room reservation management, food &amp; beverage, multi-currency invoice conversion, and integrated payment gateways for seamless transactions. Hosted on cloud, accessible via IP.</p>
+      <div class="exp-tags">
+        <span class="tag">Laravel</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Multi-currency</span>
+        <span class="tag">Cloud hosting</span>
+        <span class="tag">Payment gateway</span>
+      </div>
+    </div>
+
+    <div class="exp-card reveal reveal-delay-4">
+      <div class="exp-header">
+        <div class="exp-title">Hardware &amp; Networking Technician</div>
+        <span class="exp-badge">3 years</span>
+      </div>
+      <div class="exp-org">NVQ Level 4 — Computer Hardware &amp; Networking</div>
+      <p class="exp-desc">Network configurations, Windows Server and firewall setup, printer installations, and Windows software troubleshooting. Provides a strong foundation in system infrastructure and network security.</p>
+      <div class="exp-tags">
+        <span class="tag">Networking</span>
+        <span class="tag">Windows Server</span>
+        <span class="tag">Firewall</span>
+        <span class="tag">Troubleshooting</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="white-line"></div>
+
+<!-- ── Education ── -->
+<section id="edu">
+  <div class="sec-eyebrow reveal">Academic background</div>
+  <h2 class="sec-title reveal">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal-left">
+      <h3>University of Vocational Technology</h3>
+      <p>Bachelor of Technology in Software Technology</p>
+      <p class="edu-year"><i class="fas fa-calendar-alt" aria-hidden="true" style="margin-right:4px"></i>2021 – present · Rathmalana, Sri Lanka</p>
+    </div>
+    <div class="edu-card reveal-right">
+      <h3>Vocational Training Authority</h3>
+      <p>Qualified in ICT — Sri Lanka</p>
+      <div class="nvq-pills">
+        <span class="nvq-pill"><i class="fas fa-check" aria-hidden="true" style="margin-right:4px;font-size:10px"></i>NVQ Level 05</span>
+        <span class="nvq-pill"><i class="fas fa-check" aria-hidden="true" style="margin-right:4px;font-size:10px"></i>NVQ Level 04</span>
+        <span class="nvq-pill"><i class="fas fa-check" aria-hidden="true" style="margin-right:4px;font-size:10px"></i>NVQ Level 03</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="white-line"></div>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="sec-eyebrow reveal">Get in touch</div>
+  <h2 class="sec-title reveal">Contact me</h2>
+  <div class="contact-grid">
+    <div class="contact-card reveal reveal-delay-1">
+      <div class="contact-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-val">Colombo, Sri Lanka</div>
+      </div>
+    </div>
+    <div class="contact-card reveal reveal-delay-2">
+      <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">devinda.tharaka@gmail.com</div>
+      </div>
+    </div>
+    <div class="contact-card reveal reveal-delay-3">
+      <div class="contact-icon"><i class="fas fa-phone-alt" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-val">+94 71 017 49 49</div>
+      </div>
+    </div>
+    <div class="contact-card reveal reveal-delay-4">
+      <div class="contact-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">Availability</div>
+        <div class="contact-val" style="color:#e63030">Open to opportunities</div>
+      </div>
+    </div>
+  </div>
+  <div class="social-row reveal">
+    <a href="#" class="soc-btn"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+    <a href="#" class="soc-btn"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+    <a href="#" class="soc-btn"><i class="fab fa-twitter" aria-hidden="true"></i> Twitter</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 <span>Tharaka Devinda</span> · Crafted with passion in Colombo, Sri Lanka</p>
+</footer>
+
+<script>
+// Scroll progress bar
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (scrolled / maxScroll * 100) + '%';
+});
+
+// Navbar scroll state
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal with IntersectionObserver
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => sectionObserver.observe(s));
+
+// Smooth scroll nav
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
 </body>
-
 </html>
